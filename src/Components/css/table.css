@@ -1,0 +1,25 @@
+tbody{
+    height: 400px; 
+    overflow-y: scroll;
+    display:block;
+}
+th { 
+    position: sticky; 
+    top: 0; 
+}
+
+table {
+    display: flex;
+    flex-flow: column;
+    width: 100%;
+}
+
+thead {
+    flex: 0 0 auto;
+}
+
+tr {
+    width: 100%;
+    display: table;
+    table-layout: fixed;
+}
