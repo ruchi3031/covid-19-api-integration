@@ -11,16 +11,6 @@ export default class ResultCard extends Component {
                     <Card.Text>
                         {this.props.title}
                     </Card.Text>
-                    {/* <Accordion>
-                        <Card.Text>
-                            <Accordion.Toggle as={Button} variant="light" eventKey="1" >
-                                View Details
-                        </Accordion.Toggle>
-                        </Card.Text>
-                        <Accordion.Collapse eventKey="1">
-                            <Card.Body>Detail statement </Card.Body>
-                        </Accordion.Collapse>
-                    </Accordion> */}
                 </Card.Body>
             </Card>
         );
