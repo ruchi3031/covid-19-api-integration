@@ -1,30 +1,41 @@
 import React from 'react';
 import { Table } from 'react-bootstrap';
-import CountryRow from './CountryRow';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../css/table.css';
 
+import {Chart} from 'primereact/chart';
+
 const DetailTable = (props) => {
+    const { Countries, Data } = props;  
+    var data = Data;
+  
     const listToDisplay = () => {
-        const { Countries } = props
+        
         if (Countries && Countries.length) {
             return Countries.map((element) => {
-                return <CountryRow Country={element.Country}
-                    NewConfirmed={element.NewConfirmed}
-                    TotalConfirmed={element.TotalConfirmed}
-                    NewDeaths={element.NewDeaths}
-                    TotalDeaths={element.TotalDeaths}
-                    NewRecovered={element.NewRecovered}
-                    TotalRecovered={element.TotalRecovered}
-                />
+                return <tr>
+                    <td>{element.Country}</td>
+                    <td>{element.NewConfirmed}</td>
+                    <td>{element.TotalConfirmed}</td>
+                    <td>{element.NewDeaths}</td>
+                    <td>{element.TotalDeaths}</td>
+                    <td>{element.NewRecovered}</td>
+                    <td>{element.TotalRecovered}</td>
+                    <td><button className="btn btn-primary" 
+                    >Details
+                    </button></td>
+    </tr>
             });
         }
         else {
             return null
         }
+        
     }
     return (
-        <div>
+        <div className="row">
+            <div className="col-8">
+
             <Table striped bordered hover variant="dark">
                 <thead>
                     <tr>
@@ -35,12 +46,20 @@ const DetailTable = (props) => {
                         <th>Total Deaths</th>
                         <th>New Recovered</th>
                         <th>Total Recovered</th>
+                        <th>Action</th>
                     </tr>
                 </thead>
                 <tbody>
                     {listToDisplay()}
                 </tbody>
             </Table>
+            </div>
+            <div className="col-4">
+
+            <Chart type="pie" data={data} />
+
+
+            </div>
         </div>
     )
 }
