@@ -5,6 +5,7 @@ import '../css/table.css';
 
 import { Chart } from 'primereact/chart';
 
+
 export default class CountryClass extends Component {
     constructor(props) {
         super(props)
@@ -19,7 +20,7 @@ export default class CountryClass extends Component {
     }
 
     loadChartData=(CountryCode)=> {
-        const CountryData = this.props.Countries.find(data=>data.CountryCode == CountryCode)
+        const CountryData = this.props.Countries.find(data=>data.CountryCode === CountryCode)
         const {TotalDeaths,TotalRecovered,TotalConfirmed} = CountryData
         const data = {
             labels: ['Total Deaths', 'Total Recovered', 'Total Confirmed'],
@@ -71,7 +72,6 @@ export default class CountryClass extends Component {
         return (
             <div className="row">
                 <div className="col-8">
-
                     <Table striped bordered hover variant="dark">
                         <thead>
                             <tr>
@@ -93,7 +93,6 @@ export default class CountryClass extends Component {
                 <div className="col-4">
 
                     <Chart type="pie" data={chartData} />
-
 
                 </div>
             </div>

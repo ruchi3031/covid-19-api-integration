@@ -5,3 +5,8 @@ h1{
     text-align: center;
     padding: 20px;
 }
+
+button {
+    margin-left: 20px;
+    background-color: lightblue;
+}
